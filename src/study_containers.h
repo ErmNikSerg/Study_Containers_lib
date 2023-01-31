@@ -7,7 +7,8 @@
 #include <vector>
 #include <deque>
 #include <forward_list>
-
+#include <list>
+#include <set>
 class Study_containers
 {
 public:
@@ -16,6 +17,9 @@ public:
     void about_vector();
     void about_deque();
     void about_forward_list();
+    void about_list();
+
+    void about_set();
 };
 
 #endif // STUDY_CONTAINERS_H

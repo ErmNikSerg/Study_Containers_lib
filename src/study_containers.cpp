@@ -294,3 +294,132 @@ void Study_containers::about_forward_list()
 
     std::cout << "      *forward_list.sort()" << std::endl;
 }
+
+void Study_containers::about_list()
+{
+    auto print = [](const int& n) { std::cout << " " << n; };
+
+    std::list<int> list{0,1,2,3,4};
+    std::cout << "list{0,1,2,3,4}:" << std::endl;
+    std::cout << "It is " << "sequence container - doubly-linked list list" << std::endl;
+    std::cout <<  "std::list is a container that supports fast insertion and removal of elements from anywhere in the container." << std::endl;
+    std::cout <<  "Compared to std::forward_list this container provides bidirectional iteration capability while being less space efficient.." << std::endl;
+
+    std::cout << "  -Element access: "  << ", list.front = " << list.front()  << ", list.back = " << list.back() << std::endl;
+
+    std::cout << "  -Iterators: " << "Iterator begin = " << "list.begin() (Allocator)"  << ", Iterator end = " << "list.end() (Allocator)" << ", Iterators for_each = " ;
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "  -Capacity: " << " list.empty() = " << list.empty() << ", list.max_size() = " << list.max_size() << ", list.size() = " << list.size() << std::endl;
+
+    std::cout << "  -Modifers: " << std::endl;
+
+    std::cout << "      *list.clear() now list = ";
+    list.clear();
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.insert(list.begin(),1) now list = ";
+    list.insert(list.begin(),1);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.emplace(list.begin(),2) now list = ";
+    list.emplace(list.begin(),2);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.erase(list.begin()) now list = ";
+    list.erase(list.begin());
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.push_back(2) now list = ";
+    list.push_back(2);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.emplace_back(3) now list = ";
+    list.emplace_back(3);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.pop_back() now list = ";
+    list.pop_back();
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.push_front(0) now list = ";
+    list.push_front(0);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.emplace_front(-1) now list = ";
+    list.push_front(-1);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.pop_front() now list = ";
+    list.pop_front();
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.resize(6, 4) (resize up to 6 ,initializer = 4) now list = ";
+    list.resize(6, 4);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list1.swap(list2)  ";
+
+    std::cout << "  -Operations: " << std::endl;
+
+    std::cout << "      *list1.merge(forward_list2)" << std::endl;
+    std::cout << "      *list2.splice_after(list2.cbegin(), list1, list1.cbegin(), list1.cend());" << std::endl;
+    std::cout << "      *list.remove(1) now list = ";
+    list.remove(1);
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.reverse()" << std::endl;
+
+    std::cout << "      *list.unique() now list = ";
+    list.unique();
+    std::cout << "{";
+    std::for_each(list.begin(),list.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *list.sort()" << std::endl;
+}
+
+void Study_containers::about_set()
+{
+    std::set<int> set{0,1,2,3,4};
+}
