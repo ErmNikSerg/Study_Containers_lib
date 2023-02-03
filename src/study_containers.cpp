@@ -421,5 +421,92 @@ void Study_containers::about_list()
 
 void Study_containers::about_set()
 {
-    std::set<int> set{0,1,2,3,4};
+    auto print = [](const int& n) { std::cout << " " << n; };
+
+    std::set<int> set;
+    std::cout << "set - unordered_set" << std::endl;
+    std::cout << "It is " << "collection of unique keys" << std::endl;
+    std::cout << "set - implement sorted data structures that can be quickly searched (O(log n) complexity. Red-black tree" << std::endl;
+    std::cout << "unordered_set -  implement unsorted (hashed) data structures that can be quickly searched (O(1) amortized, O(n) worst-case complexity" << std::endl;
+
+    std::cout << "  -Modifers: " << std::endl;
+    std::cout << "      *set.clear() now set = ";
+    set.clear();
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *set.insert(0),set.insert(1),set.insert(2),set.insert(1) now set = ";
+    set.insert(0);
+    set.insert(1);
+    set.insert(2);
+    set.insert(1);
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *set.emplace(0) now set = ";
+    set.emplace(4);
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *set.emplace_hint(set.begin(),3) now set = ";
+    set.emplace_hint(set.begin(),3);
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *set.erase(3) now set = ";
+    set.erase(3);
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *set.swap(set2) " << std::endl;
+
+    std::cout << "      *node = set.extract(1) now set = ";
+    auto n = set.extract(1);
+    std::cout << "{";
+    std::for_each(set.begin(),set.end(),print);
+    std::cout << "}";
+    std::cout << ", node = " << n.value();
+    std::cout << std::endl;
+
+    std::cout << "      *set.merge(set2) " << std::endl;
+
+    std::cout << "  -Capacity: " << " set.empty() = " << set.empty() << ", set.max_size() = " << set.max_size() << ", set.size() = " << set.size() << std::endl;
+
+    std::cout << "  -Lookup: "  << std::endl;
+    std::cout << "      *set.count(0) " << set.count(0) << std::endl;
+    std::cout << "      *if (auto search = set.find(2); search != set.end()){..} ";
+    if (auto search = set.find(2); search != set.end())
+            std::cout << "Found " << (*search);
+        else
+            std::cout << "Not found";
+    std::cout << std::endl;
+
+    std::cout << "      *if (set.contains(x)){..} ";
+    for(int x: {0, 3}) {
+            if(set.contains(x)) {
+                std::cout << " " << x << ": Found";
+            } else {
+                std::cout << " "<< x << ": Not found";
+            }
+    }
+    std::cout << std::endl;
+
+    std::cout << "      *equal_range" << std::endl;
+    std::cout << "      *lower_bound" << std::endl;
+    std::cout << "      *upper_bound" << std::endl;
+
+    std::cout << "  -Observers: "  << std::endl;
+    std::cout << "      *key_comp" << std::endl;
+    std::cout << "      *value_comp" << std::endl;
+
 }
