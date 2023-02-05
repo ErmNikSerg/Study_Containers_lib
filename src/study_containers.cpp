@@ -508,5 +508,153 @@ void Study_containers::about_set()
     std::cout << "  -Observers: "  << std::endl;
     std::cout << "      *key_comp" << std::endl;
     std::cout << "      *value_comp" << std::endl;
+}
+
+void Study_containers::about_map()
+{
+    auto print = [](const std::pair<int,std::string>& n) { std::cout << " " << n.first << ":" << n.second ; };
+
+
+    std::map<int, std::string> map;
+    std::cout << "map - unordered_map" << std::endl;
+    std::cout << "It is " << "a sorted associative container that contains key-value pairs with unique keys. Keys are sorted by using the comparison function Compare" << std::endl;
+    std::cout << "map - implement sorted data structures that can be quickly searched (O(log n) complexity. Red-black tree" << std::endl;
+    std::cout << "unordered_map -  implement unsorted (hashed) data structures that can be quickly searched (O(1) amortized, O(n) worst-case complexity" << std::endl;
+
+    std::cout << "  -Modifers: " << std::endl;
+    std::cout << "      *map.clear() now map = ";
+    map.clear();
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *const auto [it_map, success] = map.insert({0, \"zero\"} now set = ";
+    const auto [it_map, success] = map.insert({0, "zero"});
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *const auto [it_map2, success2] = map.insert_or_assign(0, \"zero_two\") now set = ";
+    const auto [it_map2, success2] = map.insert_or_assign(0, "zero_two");
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.emplace(1, \"one\") now set = ";
+    map.emplace(1, "one");
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.emplace_hint(map.begin(),2, \"two\") now set = ";
+    map.emplace_hint(map.begin(),2, "two");
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.try_emplace(2, \"two\") now set = ";
+    map.try_emplace(2, "two");
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.erase(map.begin()) now set = ";
+    map.erase(map.begin());
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.swap(map2) " << std::endl;
+
+    std::cout << "      *Extract node handle auto nh = map.extract(1) now set = ";
+    auto nh = map.extract(1);
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << " change key, Insert node handle back nh.key() = 4, map.insert(std::move(nh)) now set = ";
+    nh.key() = 4;
+    map.insert(std::move(nh));
+    std::cout << "{";
+    std::for_each(map.begin(),map.end(),print);
+    std::cout << "}";
+    std::cout << std::endl;
+
+    std::cout << "      *map.merge(map2) " << std::endl;
+
+    std::cout << "  -Capacity: " << " map.empty() = " << map.empty() << ", map.max_size() = " << map.max_size() << ", map.size() = " << map.size() << std::endl;
+
+    std::cout << "  -Element access: " << std::endl;
+    std::cout << "      *map.at(2) = ";
+    std::cout << map.at(2);
+    std::cout << std::endl;
+
+    std::cout << "  -Lookup: " << std::endl;
+    std::cout << "      *map.count(2) = ";
+    std::cout << map.count(2);
+    std::cout << std::endl;
+
+    std::cout << "      *auto mf = map.find(4) = ";
+    auto mf = map.find(4);
+    std::cout << mf->first << " " << mf->second;
+    std::cout << std::endl;
+
+    std::cout << "      *map.contains(4) = ";
+    std::cout << map.contains(4);
+    std::cout << std::endl;
+
+    std::cout << "      *auto p = m.equal_range(1) = ";
+    auto p = map.equal_range(4);
+    for (auto& q = p.first; q != p.second; ++q) {
+        std::cout << "m[" << q->first << "] = " << q->second;
+    }
+    std::cout << std::endl;
+
+    std::cout << "      *lower_bound" << std::endl;
+    std::cout << "      *upper_bound" << std::endl;
+
+    std::cout << "  -Observers: " << std::endl;
+    std::cout << "      *key_comp " << std::endl;
+    std::cout << "      *value_comp " << std::endl;
+}
+
+void Study_containers::about_multiset()
+{
+
+}
+
+void Study_containers::about_multimap()
+{
+
+}
+
+void Study_containers::about_stack()
+{
+
+}
+
+void Study_containers::about_queue()
+{
+
+}
+
+void Study_containers::about_priority_queue()
+{
+
+}
+
+void Study_containers::about_flat_set()
+{
+
+}
+
+void Study_containers::about_flat_map()
+{
 
 }
