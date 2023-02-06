@@ -1,6 +1,6 @@
 #include "study_containers.h"
 #include "study_filesystem.h"
-
+#include "study_algorithm.h"
 
 int main()
 {
@@ -15,7 +15,10 @@ int main()
     //study_containers.about_map();
 
     Study_filesystem study_filesystem;
-    study_filesystem.about_filesystem();
+    //study_filesystem.about_filesystem();
+
+    Study_algorithm study_algorithm;
+    study_algorithm.about_algorithm();
 
     return 0;
 }

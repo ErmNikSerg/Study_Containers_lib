@@ -10,6 +10,7 @@ add_executable(
     src/main.cpp
     src/study_containers.h      src/study_containers.cpp
     src/study_filesystem.h      src/study_filesystem.cpp
+    src/study_algorithm.h       src/study_algorithm.cpp
 )
 
 install(TARGETS Study_Cpp_Standart_Libraries
