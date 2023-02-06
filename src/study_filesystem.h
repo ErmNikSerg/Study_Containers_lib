@@ -2,6 +2,9 @@
 #define STUDY_FILESYSTEM_H
 
 #include <iostream>
+#include <sstream>
+#include <filesystem>
+
 
 class Study_filesystem
 {
